@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('refresh-token', {
+    await queryInterface.createTable('refresh_tokens', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -27,7 +27,7 @@ module.exports = {
       },
     });
 
-    await queryInterface.addConstraint('refresh-token', {
+    await queryInterface.addConstraint('refresh_tokens', {
       type: 'foreign key',
       name: 'refresh token user id',
       fields: ['user_id'],
@@ -39,6 +39,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('refresh-token');
+    await queryInterface.dropTable('refresh_tokens');
   },
 };

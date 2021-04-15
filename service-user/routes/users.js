@@ -11,5 +11,7 @@ const usersHendler = require('./hendler/users');
 router.post('/register', usersHendler.register);
 router.post('/login', usersHendler.login);
 router.put('/update/:id', usersHendler.update);
+router.get('/detail/:id', usersHendler.getUser);
+router.get('/list', usersHendler.getUsers);
 
 module.exports = router;
