@@ -11,6 +11,10 @@ const mediaRouter = require('./routes/media');
 const paymentRouter = require('./routes/payment');
 const orderRouter = require('./routes/order');
 
+const refreshTokenRouter = require('./routes/refreshTokens');
+
+const verifyToken = require('./middlewares/verifyToken');
+
 const app = express();
 
 app.use(logger('dev'));
@@ -20,8 +24,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/refreshtoken', refreshTokenRouter);
 app.use('/users', usersRouter);
-app.use('/course', courseRouter);
+app.use('/course', verifyToken, courseRouter);
 app.use('/media', mediaRouter);
 app.use('/payment', paymentRouter);
 app.use('/order', orderRouter);
