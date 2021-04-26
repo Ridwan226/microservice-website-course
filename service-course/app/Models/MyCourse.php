@@ -13,6 +13,7 @@ class MyCourse extends Model
     
     protected $fillable = ['course_id', 'user_id'];
     
+    
     public function course(){
       return $this->belongsTo('App\Models\Course');
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ChapterController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\MentorController;
 use Illuminate\Http\Request;
@@ -31,3 +32,10 @@ Route::get('/courses', [CourseController::class, 'index']);
 Route::post('/courses', [CourseController::class, 'create']);
 Route::put('/courses/update/{id}', [CourseController::class, 'update']);
 Route::delete('/courses/delete/{id}', [CourseController::class, 'del']);
+
+
+Route::get('/chapter', [ChapterController::class, 'index']);
+Route::post('/chapter', [ChapterController::class, 'create']);
+Route::put('/chapter/update/{id}', [ChapterController::class, 'update']);
+Route::get('/chapter/detail/{id}', [ChapterController::class, 'detail']);
+Route::delete('/chapter/delete/{id}', [ChapterController::class, 'del']);
