@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\ChapterController;
 use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\LessonController;
 use App\Http\Controllers\Api\MentorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -39,3 +40,9 @@ Route::post('/chapter', [ChapterController::class, 'create']);
 Route::put('/chapter/update/{id}', [ChapterController::class, 'update']);
 Route::get('/chapter/detail/{id}', [ChapterController::class, 'detail']);
 Route::delete('/chapter/delete/{id}', [ChapterController::class, 'del']);
+
+Route::get('/leasson', [LessonController::class, 'index']);
+Route::get('/leasson/detail/{id}', [LessonController::class, 'detail']);
+Route::post('/leasson', [LessonController::class, 'create']);
+Route::put('/leasson/edit/{id}', [LessonController::class, 'update']);
+Route::delete('/leasson/delete/{id}', [LessonController::class, 'del']);

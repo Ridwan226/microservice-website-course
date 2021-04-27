@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lessons extends Model
 {
-    use HasFactory;
-    
-    protected $table = 'sessons';
-    
-    protected $fillable = ['name', 'video', 'chapter_id'];
-    
+  use HasFactory;
+
+  protected $table = 'lessons';
+
+  protected $casts = [
+    'created_at' => 'datetime:Y-m-d H:m:s',
+    'updated_at' => 'datetime:Y-m-d H:m:s',
+  ];
+  protected $fillable = ['name', 'video', 'chapter_id'];
 }
