@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\ChapterController;
 use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\LessonController;
 use App\Http\Controllers\Api\MentorController;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+  return $request->user();
 });
 
 
@@ -46,3 +47,7 @@ Route::get('/leasson/detail/{id}', [LessonController::class, 'detail']);
 Route::post('/leasson', [LessonController::class, 'create']);
 Route::put('/leasson/edit/{id}', [LessonController::class, 'update']);
 Route::delete('/leasson/delete/{id}', [LessonController::class, 'del']);
+
+
+Route::post('/imagecourses', [ImageController::class, 'create']);
+Route::delete('/imagecourses/delete/{id}', [ImageController::class, 'destroy']);
