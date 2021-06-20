@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Http;
 
 function getUser($user_id)
 {
-  $url = env('SERVICE_USER_URL') . 'user/' . $user_id;
+  $url = env('SERVICE_USER_URL') . '/users/detail/' . $user_id;
 
   try {
     //code
@@ -18,10 +18,9 @@ function getUser($user_id)
     return $data;
   } catch (\Throwable $err) {
 
-    //eerr
-
     return [
-      'status' => 500,
+      'status' => 'error',
+      'http_code' => 500,
       'message' => 'Service User Unavailable',
     ];
   };
@@ -30,7 +29,7 @@ function getUser($user_id)
 
 function getUserByid($userIds = [])
 {
-  $url = env('SERVICE_USER_URL') . 'user/';
+  $url = env('SERVICE_USER_URL') . '/users/list/';
 
 
   try {
@@ -50,7 +49,8 @@ function getUserByid($userIds = [])
     return $data;
   } catch (Exception $e) {
     return [
-      'status' => 500,
+      'status' => 'error',
+      'http_code' => 500,
       'message' => 'Service User Unavailable',
     ];
   }
