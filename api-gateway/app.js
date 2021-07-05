@@ -10,6 +10,7 @@ const courseRouter = require('./routes/course');
 const mediaRouter = require('./routes/media');
 const paymentRouter = require('./routes/payment');
 const orderRouter = require('./routes/order');
+const mentorsRouter = require('./routes/mentors');
 
 const refreshTokenRouter = require('./routes/refreshTokens');
 
@@ -30,5 +31,6 @@ app.use('/course', verifyToken, courseRouter);
 app.use('/media', mediaRouter);
 app.use('/payment', paymentRouter);
 app.use('/order', orderRouter);
+app.use('/mentors', verifyToken, mentorsRouter);
 
 module.exports = app;
