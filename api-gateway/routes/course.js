@@ -1,9 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  console.log('oke');
-});
+const coursesHendler = require('./heandler/courses');
+const verifyToken = require('../middlewares/verifyToken');
+
+router.get('/', coursesHendler.getAll);
+router.get('/:id', coursesHendler.get);
+
+router.post('/', verifyToken, coursesHendler.create);
+router.put('/:id', verifyToken, coursesHendler.update);
+router.delete('/:id', verifyToken, coursesHendler.destroy);
 
 module.exports = router;
