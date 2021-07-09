@@ -15,6 +15,7 @@ const chaptersRouter = require('./routes/chapters');
 const lessonsRouter = require('./routes/lessons');
 const imagecoursesRouter = require('./routes/imagecourses');
 const myCoursesRouter = require('./routes/myCourses');
+const reviewsRouter = require('./routes/reviews');
 
 const refreshTokenRouter = require('./routes/refreshTokens');
 
@@ -40,5 +41,6 @@ app.use('/chapters', verifyToken, chaptersRouter);
 app.use('/lessons', verifyToken, lessonsRouter);
 app.use('/imagecourses', verifyToken, imagecoursesRouter);
 app.use('/mycourses', verifyToken, myCoursesRouter);
+app.use('/reviews', verifyToken, reviewsRouter);
 
 module.exports = app;
